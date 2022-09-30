@@ -1,0 +1,20 @@
+/* Makes variables accessible throughout file */
+:root {
+    --border: 3px solid;
+}
+
+.task-done {
+    text-decoration: line-through;
+}
+
+.task-priority-low {
+    border: var(--border) var(--bs-primary);
+}
+
+.task-priority-medium {
+    border: var(--border) var(--bs-warning);
+}
+
+.task-priority-high {
+    border: var(--border) red;
+}
