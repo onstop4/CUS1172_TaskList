@@ -3,11 +3,17 @@
     --border: 3px solid;
 }
 
+#tasks {
+    display: flex;
+    flex-direction: column;
+}
+
 .task {
     background-color: #ffffff;
 }
 
 .task-done {
+    order: 1;
     background-color: #ffffff83;
     border: 0 !important;
     text-decoration: line-through;
