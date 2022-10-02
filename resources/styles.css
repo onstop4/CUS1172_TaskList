@@ -3,7 +3,13 @@
     --border: 3px solid;
 }
 
+.task {
+    background-color: #ffffff;
+}
+
 .task-done {
+    background-color: #ffffff83;
+    border: 0 !important;
     text-decoration: line-through;
 }
 

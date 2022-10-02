@@ -30,7 +30,7 @@ function addTask(e) {
 
     let element = document.createElement("li");
     element.id = taskId
-    element.classList.add("task", `task-priority-${taskPriority}`, "bg-body", "my-3", "p-3", "bg-body", "rounded", "shadow-sm");
+    element.classList.add("task", `task-priority-${taskPriority}`, "my-3", "p-3", "rounded", "shadow-sm");
     if (taskDone) {
         element.classList.add("task-done");
     }
