@@ -10,6 +10,10 @@ function addTask(e) {
     let taskPriority = document.querySelector("#new-task-priority").value;
     let taskDone = document.querySelector("#new-task-done").checked;
 
+    if (!checkNewTaskInfo(taskTitle, taskPriority, taskDone)) {
+        return;
+    }
+
     let elementTitle = document.createElement("p");
     elementTitle.classList.add("task-title");
     elementTitle.innerText = taskTitle;
@@ -37,6 +41,16 @@ function addTask(e) {
     element.append(elementTitle, buttonGroup);
 
     document.querySelector("#tasks").append(element);
+}
+
+function checkNewTaskInfo(taskTitle) {
+    let errorAlert = document.querySelector("#new-task-error-alert");
+    if (taskTitle.trim() === "") {
+        errorAlert.classList.remove("not-visible");
+    } else {
+        errorAlert.classList.add("not-visible");
+        return true;
+    }
 }
 
 function markTaskAsDone(taskId) {

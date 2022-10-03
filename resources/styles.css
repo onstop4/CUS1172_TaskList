@@ -3,6 +3,10 @@
     --border: 3px solid;
 }
 
+.not-visible {
+    display: none;
+}
+
 #tasks {
     display: flex;
     flex-direction: column;
