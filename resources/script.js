@@ -20,7 +20,7 @@ function addTask(e) {
 
     let doneButton = document.createElement("button");
     doneButton.classList.add("btn", "task-done-button");
-    modifyDoneStatus(doneButton, false);
+    modifyDoneStatus(doneButton, taskDone);
     doneButton.addEventListener("click", () => { markTaskAsDone(taskId) });
 
     let removeButton = document.createElement("button");
@@ -41,6 +41,8 @@ function addTask(e) {
     element.append(elementTitle, buttonGroup);
 
     document.querySelector("#tasks").append(element);
+
+    e.target.reset();
 }
 
 function checkNewTaskInfo(taskTitle) {
