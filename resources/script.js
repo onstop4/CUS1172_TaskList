@@ -21,12 +21,12 @@ function addTask(e) {
     let doneButton = document.createElement("button");
     doneButton.classList.add("btn", "task-done-button");
     modifyDoneStatus(doneButton, taskDone);
-    doneButton.addEventListener("click", () => { markTaskAsDone(taskId) });
+    doneButton.onclick = () => { markTaskAsDone(taskId) };
 
     let removeButton = document.createElement("button");
     removeButton.classList.add("btn", "btn-danger");
     removeButton.innerText = "Remove"
-    removeButton.addEventListener("click", () => { removeTask(taskId) });
+    removeButton.onclick = () => { removeTask(taskId) };
 
     let buttonGroup = document.createElement("div");
     buttonGroup.classList.add("btn-group");
@@ -87,5 +87,5 @@ function modifyDoneStatus(doneButton, done) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("#new-task-form").addEventListener("submit", addTask);
+    document.querySelector("#new-task-form").onsubmit = addTask
 });
