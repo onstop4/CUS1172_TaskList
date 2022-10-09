@@ -6,21 +6,27 @@ function addTask(e) {
     const taskId = `task-${tasks.length + 1}`;
     tasks.push(taskId);
 
-    let taskTitle = document.querySelector("#new-task-title").value;
-    let taskPriority = document.querySelector("#new-task-priority").value;
-    let taskDone = document.querySelector("#new-task-done").checked;
+    let taskTitleValue = document.querySelector("#new-task-title").value;
+    let taskPriority = document.querySelector("#new-task-priority");
+    let taskPriorityValue = taskPriority.value;
+    let taskPriorityText = taskPriority.options[taskPriority.selectedIndex].text;
+    let taskDoneValue = document.querySelector("#new-task-done").checked;
 
-    if (!checkNewTaskInfo(taskTitle, taskPriority, taskDone)) {
+    if (!checkNewTaskInfo(taskTitleValue, taskPriorityValue, taskDoneValue)) {
         return;
     }
 
     let elementTitle = document.createElement("p");
     elementTitle.classList.add("task-title");
-    elementTitle.innerText = taskTitle;
+    elementTitle.innerText = taskTitleValue;
+
+    let elementPriority = document.createElement("p");
+    elementPriority.classList.add("fst-italic");
+    elementPriority.innerText = `${taskPriorityText} Priority`;
 
     let doneButton = document.createElement("button");
     doneButton.classList.add("btn", "task-done-button");
-    modifyDoneStatus(doneButton, taskDone);
+    modifyDoneStatus(doneButton, taskDoneValue);
     doneButton.onclick = () => { markTaskAsDone(taskId) };
 
     let removeButton = document.createElement("button");
@@ -34,11 +40,11 @@ function addTask(e) {
 
     let element = document.createElement("li");
     element.id = taskId
-    element.classList.add("task", `task-priority-${taskPriority}`, "my-3", "p-3", "rounded", "shadow-sm");
-    if (taskDone) {
+    element.classList.add("task", `task-priority-${taskPriorityValue}`, "my-3", "p-3", "rounded", "shadow-sm");
+    if (taskDoneValue) {
         element.classList.add("task-done");
     }
-    element.append(elementTitle, buttonGroup);
+    element.append(elementTitle, elementPriority, buttonGroup);
 
     document.querySelector("#tasks").append(element);
 

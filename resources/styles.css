@@ -17,17 +17,19 @@
 }
 
 .task-done {
-    order: 1;
+    order: 3 !important;
     background-color: #ffffff83;
     border: 0 !important;
     text-decoration: line-through;
 }
 
 .task-priority-low {
+    order: 2;
     border: var(--border) var(--bs-primary);
 }
 
 .task-priority-medium {
+    order: 1;
     border: var(--border) var(--bs-warning);
 }
 
